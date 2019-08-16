@@ -2,14 +2,15 @@ package com.nguyennguyendang.comicviet.ui.login
 
 import com.nguyennguyendang.comicviet.data.network.model.User
 import com.nguyennguyendang.comicviet.ui.base.BasePresenter
-import com.nguyennguyendang.comicviet.ui.base.BaseView
 
 interface LoginContract {
-    interface Presenter: BasePresenter {
+    interface Presenter {
         fun validateData(user: User)
     }
-    interface View: BaseView<Presenter> {
+
+    interface View {
         fun onLoginSuccess(user: User)
         fun onLoginFailed()
+        fun openMainActivity();
     }
 }

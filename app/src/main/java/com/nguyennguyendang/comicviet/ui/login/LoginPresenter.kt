@@ -1,21 +1,15 @@
 package com.nguyennguyendang.comicviet.ui.login
 
 import com.nguyennguyendang.comicviet.data.network.model.User
+import com.nguyennguyendang.comicviet.ui.base.BasePresenter
 
-class LoginPresenter(var view: LoginContract.View): LoginContract.Presenter{
-
-    init {
-        view.setPresenter(this)
-    }
+class LoginPresenter : BasePresenter<LoginContract.View>(), LoginContract.Presenter {
 
     override fun validateData(user: User) {
         if (user.id.equals("Nguyen") && user.pass.equals("123"))
-            view.onLoginSuccess(user)
-        else view.onLoginFailed()
+            mView?.onLoginSuccess(user)
+        else mView?.onLoginFailed()
     }
 
-    override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
 }
