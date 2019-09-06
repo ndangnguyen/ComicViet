@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "927130111402",
+    "firebase_url": "https://toicoclub-6912f.firebaseio.com",
+    "project_id": "toicoclub-6912f",
+    "storage_bucket": "toicoclub-6912f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927130111402:android:f73c879d2992546a",
+        "android_client_info": {
+          "package_name": "com.nguyennguyendang.comicviet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927130111402-e6mifhmrg521k80p22j54uuescedrllc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nguyennguyendang.comicviet",
+            "certificate_hash": "7343ded7734dec8cc44c7ce8c811d140834babc8"
+          }
+        },
+        {
+          "client_id": "927130111402-1f7j6v2qe82g29vsve915uhpnhfj8cr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL0A7ZSfaDBU5qyVCokXI-p1-UKTfpOhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927130111402-1f7j6v2qe82g29vsve915uhpnhfj8cr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

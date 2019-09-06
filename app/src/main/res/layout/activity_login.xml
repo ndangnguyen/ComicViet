@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/container"
+        android:id="@+id/clLogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.login.LoginActivity"
-android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        tools:context=".ui.login.LoginActivity">
     
-    <ImageView android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:src="@drawable/bg_design"
-               android:scaleType="centerCrop"
-               android:id="@+id/imageView"
-               tools:layout_editor_absoluteY="29dp"
-               tools:layout_editor_absoluteX="-9dp"/>
     <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:cardElevation="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/imageView"
             android:layout_margin="20dp"
-            app:cardCornerRadius="10dp" android:id="@+id/cardView" tools:layout_editor_absoluteX="10dp">
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical">
+            android:layout_marginStart="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            
             <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="5dp"
                     android:textColorHint="@color/gray"
-                    android:layout_marginTop="70dp"
                     app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
-        
+                
                 <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etName"
+                        android:id="@+id/etEmail"
                         style="@style/TextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -45,24 +47,26 @@ android:animateLayoutChanges="true">
                         android:background="@drawable/input_border_bottom"
                         android:cursorVisible="true"
                         android:gravity="center|left|bottom"
-                        android:hint="Email"
+                        android:hint="@string/email"
                         android:inputType="textEmailAddress"
                         android:maxLength="50"
-                        android:paddingBottom="10dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="5dp"
                         android:textColor="@color/black_effective"
                         android:textSize="18sp" />
-    
+            
             </com.google.android.material.textfield.TextInputLayout>
-    
+            
             <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="@string/password"
                     android:textColorHint="@color/gray"
                     app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
                     app:passwordToggleEnabled="true">
-        
+                
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etPass"
                         style="@style/TextStyle"
@@ -75,40 +79,114 @@ android:animateLayoutChanges="true">
                         android:gravity="center|left|bottom"
                         android:inputType="textPassword"
                         android:maxLength="50"
-                        android:paddingBottom="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
                         android:textColor="@color/black_effective"
                         android:textSize="18sp" />
-    
+            
             </com.google.android.material.textfield.TextInputLayout>
             
-            <Button
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tvPass2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="@string/re_enter_password"
+                    android:textColorHint="@color/gray"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                    app:passwordToggleEnabled="true">
+                
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPass2"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/input_border_bottom"
+                        android:cursorVisible="true"
+                        android:gravity="center|left|bottom"
+                        android:inputType="textPassword"
+                        android:maxLength="50"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black_effective"
+                        android:textSize="18sp" />
+            
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            <androidx.cardview.widget.CardView
                     android:id="@+id/btnLogin"
-                    style="@style/Button.Primary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginBottom="60dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorAccent"
                     android:padding="10dp"
-                    android:text="LOGIN"
-                    android:textSize="18dp" />
-            <LinearLayout
-                    android:layout_width="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+                
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_primary_bg"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/login"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+            </androidx.cardview.widget.CardView>
+            
+            <androidx.cardview.widget.CardView
+                    android:id="@+id/btnSignIn"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginBottom="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+                
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_primary_bg"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/sign_in"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+            </androidx.cardview.widget.CardView>
+            
+            <TextView
+                    android:id="@+id/tvNeedAcount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:text="@string/need_a_account" />
+            
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
-    
+                
                 <ImageButton
                         android:id="@+id/ib_google_login"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@color/transparent"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/ic_google_plus"/>
-    
+                        android:src="@drawable/ic_google_plus" />
+                
                 <ImageButton
                         android:id="@+id/ib_fb_login"
                         android:layout_width="40dp"
@@ -116,20 +194,24 @@ android:animateLayoutChanges="true">
                         android:layout_marginLeft="24dp"
                         android:background="@color/transparent"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/ic_facebook"/>
+                        android:src="@drawable/ic_facebook" />
             </LinearLayout>
-
-
+        
+        
         </LinearLayout>
-
-
+    
+    
     </androidx.cardview.widget.CardView>
     
-    <ImageView android:layout_width="120dp"
-               android:layout_height="120dp"
-               android:elevation="11dp"
-               android:src="@drawable/ic_baseline_person_pin_24px" app:layout_constraintBottom_toTopOf="@+id/cardView"
-               app:layout_constraintTop_toTopOf="@+id/cardView" app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:elevation="11dp"
+            android:src="@drawable/ic_baseline_person_pin_24px"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

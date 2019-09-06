@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ComicViet</string>
+    <string name="already_have_account"><u>Đã có tài khoản?</u></string>
+    <string name="email_invalid">Email không hợp lệ!</string>
+    <string name="login">ĐĂNG NHẬP</string>
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="miss_password">Vui lòng nhập mật khẩu!</string>
+    <string name="miss_re_enter_password">Vui lòng nhập lại mật khẩu!</string>
+    <string name="need_a_account"><u>Chưa có tài khoản?</u></string>
+    <string name="password_missmatch">Mật khẩu nhập lại không đúng!</string>
+    <string name="password">Mật khẩu</string>
+    <string name="re_enter_password">Nhập lại mật khẩu</string>
+    <string name="register_success">Đăng ký thành công! Hãy đăng nhập!</string>
+    <string name="sign_in">ĐĂNG KÝ</string>
+    <string name="wrong_user">Sai tên đăng nhập hoặc mật khẩu!</string>
+    <string name="title_activity_login">Truyện tranh Việt</string>
+    <string name="email">Địa chỉ Email</string>
+</resources>
