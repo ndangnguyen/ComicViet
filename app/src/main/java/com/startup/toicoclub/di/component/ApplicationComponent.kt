@@ -5,7 +5,6 @@ import com.startup.toicoclub.data.DataManager
 import com.startup.toicoclub.data.network.api.ApiHelper
 import com.startup.toicoclub.di.module.ApplicationModule
 import com.startup.toicoclub.di.module.ServiceModule
-import com.startup.toicoclub.ui.login.LoginActivity
 import dagger.Component
 import javax.inject.Singleton
 

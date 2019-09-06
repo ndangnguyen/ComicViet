@@ -14,16 +14,14 @@ import javax.inject.Singleton
 class ApplicationModule {
     @Provides
     @Singleton
-    fun provideApplication(): Application
-            = APP()
+    fun provideApplication(): Application = APP()
 
     @Provides
     @Singleton
-    fun provideDataManager(appDataManager: AppDataManager): DataManager
-            = appDataManager
+    fun provideDataManager(appDataManager: AppDataManager): DataManager = appDataManager
 
     @Provides
     @Singleton
-    fun provideFirebaseHelper(appFirebaseHelper: AppFirebaseHelper): FirebaseHelper
-            = appFirebaseHelper
+    fun provideFirebaseHelper(appFirebaseHelper: AppFirebaseHelper): FirebaseHelper =
+        appFirebaseHelper
 }

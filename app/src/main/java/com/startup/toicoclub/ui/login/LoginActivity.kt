@@ -1,7 +1,12 @@
 package com.startup.toicoclub.ui.login
 
+import android.annotation.TargetApi
 import android.app.ActivityOptions
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import android.text.TextUtils
 import android.transition.TransitionManager
 import android.util.Patterns
@@ -13,6 +18,11 @@ import com.startup.toicoclub.ui.main.MainActivityIntent
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
+
+fun Context.LoginActivityIntent(): Intent {
+    return Intent(this, LoginActivity::class.java).apply {
+    }
+}
 
 class LoginActivity : BaseActivity(), LoginContract.View {
 
@@ -31,12 +41,13 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mComponent?.inject(this)
+        mComponent.inject(this)
         mPresenter.attach(this)
         supportActionBar?.hide()
         setListener()
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     private fun setListener() {
         btnLogin.setOnClickListener {
             hideKeyboard()
@@ -68,14 +79,14 @@ class LoginActivity : BaseActivity(), LoginContract.View {
                     tvPass2.visibility = View.VISIBLE
                     btnLogin.visibility = View.GONE
                     btnSignIn.visibility = View.VISIBLE
-                    tvNeedAcount.text = getString(R.string.already_have_account)
+                    tvNeedAcount.text = Html.fromHtml(getString(R.string.already_have_account), Html.FROM_HTML_MODE_COMPACT)
                 }
                 false -> {
                     isLogin = true
                     tvPass2.visibility = View.GONE
                     btnLogin.visibility = View.VISIBLE
                     btnSignIn.visibility = View.GONE
-                    tvNeedAcount.text = getString(R.string.need_a_account)
+                    tvNeedAcount.text = Html.fromHtml(getString(R.string.need_a_account), Html.FROM_HTML_MODE_COMPACT)
                 }
             }
         }
@@ -122,7 +133,10 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     }
 
     override fun openMainActivity() {
-        startActivity(MainActivityIntent(), ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+        startActivity(
+            MainActivityIntent(),
+            ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+        )
 
     }
 

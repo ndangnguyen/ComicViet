@@ -1,8 +1,8 @@
 package com.startup.toicoclub.data.network.firebase
 
-import androidx.annotation.CallSuper
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseUser
 import com.startup.toicoclub.data.network.model.User
 
 interface FirebaseHelper {
@@ -10,4 +10,6 @@ interface FirebaseHelper {
     fun createUserWithEmail(email: String, password: String): Task<AuthResult>
     fun deleteUser(uid: String)
     fun updateUser(user: User)
+    fun getCurrentUser(): FirebaseUser?
+    fun signOut()
 }

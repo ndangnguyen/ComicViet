@@ -14,4 +14,5 @@ interface ApiHelper {
         @Header("X-RapidAPI-Host") b: String,
         @Header("X-RapidAPI-Key") c: String,
         @Query("q") name: String
-    ): Observable<WeatherData>}
+    ): Observable<WeatherData>
+}

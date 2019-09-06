@@ -16,4 +16,5 @@
     <string name="wrong_user">Sai tên đăng nhập hoặc mật khẩu!</string>
     <string name="title_activity_login">Truyện tranh Việt</string>
     <string name="email">Địa chỉ Email</string>
+    <string name="sign_out">Đăng xuất</string>
 </resources>

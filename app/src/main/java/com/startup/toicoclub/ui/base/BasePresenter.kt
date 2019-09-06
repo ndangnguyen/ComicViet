@@ -1,8 +1,6 @@
 package com.startup.toicoclub.ui.base
 
 import com.startup.toicoclub.data.DataManager
-import com.startup.toicoclub.di.component.ApplicationComponent
-import com.startup.toicoclub.di.component.DaggerApplicationComponent
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject

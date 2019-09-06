@@ -4,7 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class MainViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class MainViewPagerAdapter(fragmentManager: FragmentManager) :
+    FragmentPagerAdapter(fragmentManager) {
     override fun getItem(position: Int): Fragment? {
         var fragment: Fragment? = null
         when (position) {

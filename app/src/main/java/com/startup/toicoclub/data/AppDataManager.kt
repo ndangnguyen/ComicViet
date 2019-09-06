@@ -4,7 +4,8 @@ import com.startup.toicoclub.data.network.api.ApiHelper
 import com.startup.toicoclub.data.network.firebase.FirebaseHelper
 import javax.inject.Inject
 
-class AppDataManager @Inject constructor(firebaseHelper: FirebaseHelper, apiHelper: ApiHelper) : DataManager {
+class AppDataManager @Inject constructor(firebaseHelper: FirebaseHelper, apiHelper: ApiHelper) :
+    DataManager {
     var mFirebaseHelper: FirebaseHelper
     var mApiHelper: ApiHelper
 
@@ -21,5 +22,6 @@ class AppDataManager @Inject constructor(firebaseHelper: FirebaseHelper, apiHelp
     override fun getApiHelper(): ApiHelper {
         return mApiHelper
     }
+
 
 }

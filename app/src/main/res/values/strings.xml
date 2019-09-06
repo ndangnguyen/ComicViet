@@ -15,4 +15,5 @@
     <string name="wrong_user">Wrong user name or password!</string>
     <string name="login_success">Login successful!</string>
     <string name="register_success">Register successful! Please login!</string>
+    <string name="sign_out">Sign out</string>
 </resources>

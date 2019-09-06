@@ -5,12 +5,12 @@ import com.startup.toicoclub.ui.base.IPresenter
 import com.startup.toicoclub.ui.base.IView
 
 interface LoginContract {
-    interface Presenter: IPresenter {
+    interface Presenter : IPresenter {
         fun login(user: User)
         fun register(user: User)
     }
 
-    interface View: IView {
+    interface View : IView {
         fun onLoginSuccess(user: User)
         fun onLoginFailed(msg: String)
         fun onRegisterSuccess()

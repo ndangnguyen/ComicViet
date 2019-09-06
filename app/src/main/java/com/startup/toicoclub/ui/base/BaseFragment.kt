@@ -10,13 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.mindorks.framework.mvp.util.CommonUtil
 import es.dmoral.toasty.Toasty
-import androidx.core.content.ContextCompat.getSystemService
-
 
 
 abstract class BaseFragment<P : IPresenter> : Fragment(), IView {
@@ -31,10 +28,6 @@ abstract class BaseFragment<P : IPresenter> : Fragment(), IView {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(setLayout(), container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun hideProgress() {
@@ -55,7 +48,7 @@ abstract class BaseFragment<P : IPresenter> : Fragment(), IView {
     }
 
     override fun showToasty(text: String) {
-        Toasty.success(context!!, text, Toast.LENGTH_SHORT, true).show();
+        Toasty.success(context!!, text, Toast.LENGTH_SHORT, true).show()
     }
 
     override fun hideKeyboard() {

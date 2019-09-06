@@ -14,7 +14,7 @@ class NewsFragment : BaseFragment<MainPresenter>() {
     companion object {
         const val KEY_ARG_1: String = "arg"
         fun newInstance(name: String): NewsFragment {
-            var bundle = Bundle()
+            val bundle = Bundle()
             bundle.putString(KEY_ARG_1, name)
             return NewsFragment().apply {
                 arguments = bundle
@@ -26,16 +26,10 @@ class NewsFragment : BaseFragment<MainPresenter>() {
         return R.layout.news_frag
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var bundle: Bundle? = arguments
-        var name = bundle?.getString(KEY_ARG_1, "")
+        val bundle: Bundle? = arguments
+        val name = bundle?.getString(KEY_ARG_1, "")
 //        Snackbar.make(view!!, name!!, Snackbar.LENGTH_LONG)
         tvName?.text = name
     }
