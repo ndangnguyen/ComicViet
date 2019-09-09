@@ -79,14 +79,20 @@ class LoginActivity : BaseActivity(), LoginContract.View {
                     tvPass2.visibility = View.VISIBLE
                     btnLogin.visibility = View.GONE
                     btnSignIn.visibility = View.VISIBLE
-                    tvNeedAcount.text = Html.fromHtml(getString(R.string.already_have_account), Html.FROM_HTML_MODE_COMPACT)
+                    tvNeedAcount.text = Html.fromHtml(
+                        getString(R.string.already_have_account),
+                        Html.FROM_HTML_MODE_COMPACT
+                    )
                 }
                 false -> {
                     isLogin = true
                     tvPass2.visibility = View.GONE
                     btnLogin.visibility = View.VISIBLE
                     btnSignIn.visibility = View.GONE
-                    tvNeedAcount.text = Html.fromHtml(getString(R.string.need_a_account), Html.FROM_HTML_MODE_COMPACT)
+                    tvNeedAcount.text = Html.fromHtml(
+                        getString(R.string.need_a_account),
+                        Html.FROM_HTML_MODE_COMPACT
+                    )
                 }
             }
         }

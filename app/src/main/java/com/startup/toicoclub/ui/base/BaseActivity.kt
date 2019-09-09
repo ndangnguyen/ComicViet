@@ -17,6 +17,7 @@ import com.startup.toicoclub.APP
 import com.startup.toicoclub.R
 import com.startup.toicoclub.di.component.ActivityComponent
 import com.startup.toicoclub.di.component.DaggerActivityComponent
+import com.startup.toicoclub.di.module.FirebaseModule
 import es.dmoral.toasty.Toasty
 
 
@@ -34,6 +35,7 @@ abstract class BaseActivity : AppCompatActivity(), IView {
         setContentView(setLayout())
         super.onCreate(savedInstanceState)
         mComponent = DaggerActivityComponent.builder()
+            .firebaseModule(FirebaseModule(getString(R.string.default_client_id)))
             .applicationComponent((application as APP).appComponent)
             .build()
     }

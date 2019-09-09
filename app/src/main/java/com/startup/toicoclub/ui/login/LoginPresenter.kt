@@ -39,4 +39,8 @@ class LoginPresenter @Inject constructor(dataManager: DataManager) :
                 mView.onRegisterFailed(it.message ?: "Register Failed!")
             }
     }
+
+    override fun facebookLogin() {
+        mDataManager.getFirebaseHelper().
+    }
 }

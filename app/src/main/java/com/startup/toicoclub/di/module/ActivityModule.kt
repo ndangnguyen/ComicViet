@@ -9,11 +9,7 @@ import javax.inject.Named
 @Module
 class ActivityModule constructor(activity: AppCompatActivity) {
 
-    private lateinit var mActivity: AppCompatActivity
-
-    init {
-        mActivity = activity
-    }
+    private var mActivity: AppCompatActivity = activity
 
     @Provides
     @Named("ActivityContext")

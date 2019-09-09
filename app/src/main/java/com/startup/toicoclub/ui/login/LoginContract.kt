@@ -8,6 +8,7 @@ interface LoginContract {
     interface Presenter : IPresenter {
         fun login(user: User)
         fun register(user: User)
+        fun facebookLogin()
     }
 
     interface View : IView {

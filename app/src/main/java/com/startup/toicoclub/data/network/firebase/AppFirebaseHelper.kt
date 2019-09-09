@@ -1,5 +1,6 @@
 package com.startup.toicoclub.data.network.firebase
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +20,9 @@ class AppFirebaseHelper @Inject constructor() : FirebaseHelper {
 
     override fun createUserWithEmail(email: String, password: String): Task<AuthResult> {
         return firebaseAuth.createUserWithEmailAndPassword(email, password)
+    }
+
+    override fun getGoogleSignInClient(): GoogleSignInClient {
     }
 
     override fun deleteUser(uid: String) {
