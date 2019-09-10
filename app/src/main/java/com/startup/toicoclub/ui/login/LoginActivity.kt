@@ -11,6 +11,10 @@ import android.text.TextUtils
 import android.transition.TransitionManager
 import android.util.Patterns
 import android.view.View
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.tasks.Task
 import com.startup.toicoclub.R
 import com.startup.toicoclub.data.network.model.User
 import com.startup.toicoclub.ui.base.BaseActivity
@@ -32,8 +36,13 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     var isLogin: Boolean = true
 
+    val RC_SIGN_IN = 1
+
     @Inject
     lateinit var mPresenter: LoginPresenter
+
+    @Inject
+    lateinit var googleSignInClient: GoogleSignInClient
 
     override fun setLayout(): Int {
         return R.layout.activity_login
@@ -96,6 +105,11 @@ class LoginActivity : BaseActivity(), LoginContract.View {
                 }
             }
         }
+
+        ibGG.setOnClickListener {
+            var intent: Intent = googleSignInClient.signInIntent
+            startActivityForResult(intent, RC_SIGN_IN)
+        }
     }
 
     override fun isInputValidated(): Boolean {
@@ -154,4 +168,18 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun onRegisterFailed(msg: String) {
         showSnackbar(clLogin, msg)
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            RC_SIGN_IN -> {
+
+                var task: Task<GoogleSignInAccount> =
+                    GoogleSignIn.getSignedInAccountFromIntent(data)
+                mPresenter.handleGoogleSignInResult(task)
+            }
+        }
+    }
+
+
 }

@@ -180,7 +180,7 @@
                     android:orientation="horizontal">
                 
                 <ImageButton
-                        android:id="@+id/ib_google_login"
+                        android:id="@+id/ibGG"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@color/transparent"
@@ -188,7 +188,7 @@
                         android:src="@drawable/ic_google_plus" />
                 
                 <ImageButton
-                        android:id="@+id/ib_fb_login"
+                        android:id="@+id/ibFB"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="24dp"

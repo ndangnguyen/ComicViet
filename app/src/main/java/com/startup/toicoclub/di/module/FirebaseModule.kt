@@ -12,7 +12,7 @@ import javax.inject.Named
 class FirebaseModule(var webClientId: String) {
     @Provides
     fun provideGoogleSignInOptions(): GoogleSignInOptions {
-        return GoogleSignInOptions.Builder().apply {
+        return GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).apply {
             requestIdToken(webClientId)
             requestEmail()
         }.build()

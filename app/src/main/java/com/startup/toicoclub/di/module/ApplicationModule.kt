@@ -13,15 +13,15 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class ApplicationModule {
+class ApplicationModule(var context: Context) {
     @Provides
     @Singleton
-    fun provideApplication(): Application = APP()
+    fun provideApplication(app: APP): Application = app
 
     @Provides
     @Singleton
     @Named("ApplicationContext")
-    fun provideApplicationContext(): Context = APP().applicationContext
+    fun provideApplicationContext() = context
 
     @Provides
     @Singleton
