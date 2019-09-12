@@ -3,11 +3,12 @@ package com.startup.toicoclub.ui.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import com.startup.toicoclub.R
 import com.startup.toicoclub.ui.base.BaseActivity
 import com.startup.toicoclub.ui.login.LoginActivityIntent
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.main.*
 import javax.inject.Inject
 
 
@@ -32,6 +33,20 @@ class MainActivity : BaseActivity(), MainContract.View {
         mComponent.inject(this)
         mainPresenter.attach(this)
         setListener()
+        initToolbar()
+    }
+
+    fun initToolbar() {
+        setSupportActionBar(tbMain)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        title = getString(R.string.app_name)
+        var actionBarDrawerToggle = ActionBarDrawerToggle(
+            this, dlMain, tbMain,
+            R.string.open_tool_bar, R.string.close_tool_bar
+        )
+        dlMain.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(true)
+        actionBarDrawerToggle.syncState()
     }
 
     private fun setListener() {
@@ -44,13 +59,6 @@ class MainActivity : BaseActivity(), MainContract.View {
                 else -> false
             }
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.itLogout -> mainPresenter.signOut()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun goToLogin() {

@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 
 class MainViewPagerAdapter(fragmentManager: FragmentManager) :
     FragmentPagerAdapter(fragmentManager) {
-    override fun getItem(position: Int): Fragment? {
+    override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
             0 -> {
@@ -19,7 +19,7 @@ class MainViewPagerAdapter(fragmentManager: FragmentManager) :
                 fragment = NewsFragment.newInstance("NGUYEN CHUAN MEN")
             }
         }
-        return fragment
+        return fragment!!
     }
 
     override fun getCount(): Int {

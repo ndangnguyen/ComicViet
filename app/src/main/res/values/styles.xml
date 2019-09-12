@@ -59,5 +59,9 @@
     <style name="TextAppearence.App.TextInputLayout" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/gray</item>
     </style>
+    
+    <style name="AppBar" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
 
 </resources>

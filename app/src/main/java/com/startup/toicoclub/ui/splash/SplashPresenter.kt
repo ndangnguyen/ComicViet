@@ -3,6 +3,10 @@ package com.startup.toicoclub.ui.splash
 import com.google.firebase.auth.FirebaseUser
 import com.startup.toicoclub.data.DataManager
 import com.startup.toicoclub.ui.base.BasePresenter
+import com.startup.toicoclub.utils.rx.SchedulerProvider
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class SplashPresenter @Inject constructor(dataManager: DataManager) :
@@ -14,5 +18,11 @@ class SplashPresenter @Inject constructor(dataManager: DataManager) :
 
     override fun checkAuthenticate() {
         if (isAuthenticated()) mView.goToMain() else mView.goToLogin()
+        mDataManager.getApiHelper().getNewest().observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe{
+                var list = it.wallpapers
+                var a = 5
+            }
     }
 }

@@ -17,4 +17,6 @@
     <string name="register_success">Register successful! Please login!</string>
     <string name="sign_out">Sign out</string>
     <string name="default_client_id" translatable="false">611023012423-d6q4bktpv134cei9bt2cvqga4l4s9d8l.apps.googleusercontent.com</string>
+    <string name="open_tool_bar">Open Toolbar</string>
+    <string name="close_tool_bar">Close Toobar</string>
 </resources>
