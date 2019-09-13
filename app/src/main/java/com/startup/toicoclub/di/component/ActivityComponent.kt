@@ -5,6 +5,8 @@ import com.startup.toicoclub.di.module.ActivityModule
 import com.startup.toicoclub.di.module.FirebaseModule
 import com.startup.toicoclub.ui.login.LoginActivity
 import com.startup.toicoclub.ui.main.MainActivity
+import com.startup.toicoclub.ui.newest.CategoryFragment
+import com.startup.toicoclub.ui.newest.NewestFragment
 import com.startup.toicoclub.ui.splash.SplashActivity
 import dagger.Component
 
@@ -14,4 +16,6 @@ interface ActivityComponent {
     fun inject(loginActivity: LoginActivity)
     fun inject(mainActivity: MainActivity)
     fun inject(splashActivity: SplashActivity)
+    fun inject(newestFragment: NewestFragment)
+    fun inject(categoryFragment: CategoryFragment)
 }

@@ -3,23 +3,22 @@ package com.startup.toicoclub.ui.main
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.startup.toicoclub.ui.newest.CategoryFragment
+import com.startup.toicoclub.ui.newest.NewestFragment
 
 class MainViewPagerAdapter(fragmentManager: FragmentManager) :
-    FragmentPagerAdapter(fragmentManager) {
+    FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
+    var fragmentList: ArrayList<Fragment> = ArrayList()
+
+    init {
+        fragmentList.add(NewestFragment())
+        fragmentList.add(CategoryFragment())
+        fragmentList.add(NewsFragment.newInstance("C"))
+    }
+
     override fun getItem(position: Int): Fragment {
-        var fragment: Fragment? = null
-        when (position) {
-            0 -> {
-                fragment = NewsFragment.newInstance("NGUYEN DEP TRAI")
-            }
-            1 -> {
-                fragment = NewsFragment.newInstance("NGUYEN XINH GAI")
-            }
-            2 -> {
-                fragment = NewsFragment.newInstance("NGUYEN CHUAN MEN")
-            }
-        }
-        return fragment!!
+        return fragmentList[position]
     }
 
     override fun getCount(): Int {
@@ -27,8 +26,8 @@ class MainViewPagerAdapter(fragmentManager: FragmentManager) :
     }
 
     override fun getPageTitle(position: Int): CharSequence? = when (position) {
-        0 -> "Nguyen dep trai"
-        1 -> "Nguyen xinh gai"
+        0 -> "Newest"
+        1 -> "Category"
         2 -> "Nguyen chuan men"
         else -> null
     }

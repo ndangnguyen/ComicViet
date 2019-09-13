@@ -28,10 +28,13 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        vpMain.adapter = MainViewPagerAdapter(supportFragmentManager)
-        tlMain.setupWithViewPager(vpMain)
+    }
+
+    override fun onInit() {
         mComponent.inject(this)
         mainPresenter.attach(this)
+        vpMain.adapter = MainViewPagerAdapter(supportFragmentManager)
+        tlMain.setupWithViewPager(vpMain)
         setListener()
         initToolbar()
     }

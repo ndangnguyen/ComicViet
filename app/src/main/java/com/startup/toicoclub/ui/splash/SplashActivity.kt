@@ -14,8 +14,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     @Inject
     lateinit var mPresenter: SplashPresenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onInit() {
         mComponent.inject(this)
         mPresenter.attach(this)
     }

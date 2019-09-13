@@ -16,11 +16,20 @@ import com.mindorks.framework.mvp.util.CommonUtil
 import es.dmoral.toasty.Toasty
 
 
-abstract class BaseFragment<P : IPresenter> : Fragment(), IView {
+abstract class BaseFragment : Fragment(), IView {
 
     abstract fun setLayout(): Int
+    abstract fun onInit()
+    lateinit var mActivity: BaseActivity
 
     private var progressDialog: ProgressDialog? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is BaseActivity) {
+            mActivity = context
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +37,11 @@ abstract class BaseFragment<P : IPresenter> : Fragment(), IView {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(setLayout(), container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        onInit()
     }
 
     override fun hideProgress() {
@@ -55,4 +69,6 @@ abstract class BaseFragment<P : IPresenter> : Fragment(), IView {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
         imm!!.hideSoftInputFromWindow(view?.applicationWindowToken, 0)
     }
+
+    fun getComponent() = mActivity.mComponent
 }

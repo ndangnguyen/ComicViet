@@ -25,6 +25,8 @@ abstract class BaseActivity : AppCompatActivity(), IView {
 
     abstract fun setLayout(): Int
 
+    abstract fun onInit()
+
     private var progressDialog: ProgressDialog? = null
 
     private lateinit var snackbar: Snackbar
@@ -38,6 +40,7 @@ abstract class BaseActivity : AppCompatActivity(), IView {
             .firebaseModule(FirebaseModule(getString(R.string.default_client_id)))
             .applicationComponent((application as APP).appComponent)
             .build()
+        onInit()
     }
 
     override fun hideProgress() {

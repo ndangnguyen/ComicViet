@@ -9,7 +9,7 @@ import com.startup.toicoclub.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.news_frag.*
 
 
-class NewsFragment : BaseFragment<MainPresenter>() {
+class NewsFragment : BaseFragment() {
 
     companion object {
         const val KEY_ARG_1: String = "arg"
@@ -20,6 +20,10 @@ class NewsFragment : BaseFragment<MainPresenter>() {
                 arguments = bundle
             }
         }
+    }
+
+    override fun onInit() {
+
     }
 
     override fun setLayout(): Int {

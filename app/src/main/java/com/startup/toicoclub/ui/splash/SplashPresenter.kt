@@ -18,11 +18,5 @@ class SplashPresenter @Inject constructor(dataManager: DataManager) :
 
     override fun checkAuthenticate() {
         if (isAuthenticated()) mView.goToMain() else mView.goToLogin()
-        mDataManager.getApiHelper().getNewest().observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe{
-                var list = it.wallpapers
-                var a = 5
-            }
     }
 }

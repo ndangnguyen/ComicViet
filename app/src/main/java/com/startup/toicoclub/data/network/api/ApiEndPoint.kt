@@ -5,5 +5,7 @@ object ApiEndPoint {
     const val ENDPOINT_URL2 = "https://wall.alphacoders.com/api2.0/get.php?auth=$API_KEY"
     const val ENDPOINT_URL = "https://wall.alphacoders.com/api2.0/"
     const val WEATHER = "/weather"
-    const val NEWEST = "get.php?auth=$API_KEY"
+    const val NEWEST = "get.php?auth=$API_KEY&method=newest"
+    const val CATEGORY_LIST = "get.php?auth=$API_KEY&method=category_list"
+    const val IMAGE_BY_CATEGORY = "get.php?auth=$API_KEY&method=category"
 }

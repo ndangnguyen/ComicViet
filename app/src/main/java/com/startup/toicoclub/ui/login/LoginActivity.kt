@@ -48,8 +48,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         return R.layout.activity_login
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onInit() {
         mComponent.inject(this)
         mPresenter.attach(this)
         supportActionBar?.hide()

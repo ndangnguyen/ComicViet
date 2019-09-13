@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 internal fun ImageView.loadImage(url: String) {
     Glide.with(this.context)
         .load(url)
+        .override(400,400)
         .centerCrop()
         .into(this)
 }
