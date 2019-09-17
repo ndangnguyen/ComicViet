@@ -29,7 +29,6 @@ class LoginPresenter @Inject constructor(dataManager: DataManager) :
             }
             .addOnFailureListener {
                 mView.onLoginFailed(it.message ?: "Login Failed!")
-                TODO("Convert hard code string but not use context")
             }
     }
 
@@ -83,7 +82,6 @@ class LoginPresenter @Inject constructor(dataManager: DataManager) :
             }
             .addOnFailureListener {
                 mView.onLoginFailed(it.message ?: "Login Failed!")
-                TODO("Convert hard code string but not use context")
             }
     }
 }
